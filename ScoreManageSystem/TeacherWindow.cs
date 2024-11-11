@@ -264,7 +264,8 @@ namespace ScoreManageSystem
         {
             var cell = scoreInfoGrid[e.ColumnIndex, e.RowIndex];
             var row = scoreInfoGrid.Rows[e.RowIndex];
-            if (e.RowIndex < 0 || cell.Value == null || !int.TryParse(cell.Value.ToString(), out var score))
+            if (e.RowIndex < 0 || cell.Value == null || !int.TryParse(cell.Value.ToString(), out var score)
+                || score < 0 || score > 100)
             {
                 cell.Value = cell.Tag;
                 return;
